@@ -57,10 +57,13 @@
 1. Each angular app component has its own test file, which is being used to write the test code of that particular component
 2. The test file per component is created by the angular CLI, while creating the component. It should have extension of ```.spec.ts```
 3. To run the test from angular CLI, execute the command ```ng test``` from the project directory
-4. What is Suites?
+
+## Suits[ describe( ) ]  and it( ) function
+
+1. What is Suites?
    1. A suite groups a set of specs or test cases, it created using Jasmine global function ```describe()```
-   2. ```describe()``` function takes two parameters, the title of the test suite and the function that implements the actual code of the test suite
-5. What is ```it()``` ?
+   2. ```describe()``` function takes two parameters, the title of the test suite and the function that implements the actual code of the test suite 
+2. What is ```it()``` ?
    1. Specs are defined by calling the global jasmine function ```it()```, which is like ```describe()``` function takes a string and a function
    2. The string is a title of the spec and the function is spec
    3. The spec function can contain one or more expectations ```expect()```, which test the state of the code 
@@ -68,6 +71,38 @@
    5. A spec with one or more false expectations is a failing spec
    6. ```it()``` blocks are functions, they can contain any executable code necessary to implement the test. 
    7. The JavaScript scope rules applies here, so variable declared in a ```describe()``` are available to any ```it()``` block inside suite 
-6. What are ```expectations```
-   1. 
 
+## Expectations and Matchers
+
+1. What are ```expectations```
+
+   1. Expect function basically take the result obtain from the execution of the function which is under test
+   2. Except function must always be chained by the matcher function
+
+2. What are ```matchers```
+
+   1. Each matcher implements a boolean comparison between actual value obtained by executing the function under test and expected value
+
+   2. Matcher function takes the expectation value as a parameters, If a value obtained from function under test is satisfying the matcher function and its parameter then test is successful, else test will fail
+
+   3. Any matcher can evaluate to a negative assertion by chaining the ```not``` function before the matcher function
+
+   4. available built-in matcher functions
+
+      | Matcher Functions                           | Description                                                  |
+      | ------------------------------------------- | ------------------------------------------------------------ |
+      | ```toBe(TRUE)```                            | Check boolean outcome                                        |
+      | ```toEqual(VALUE)```                        | Check the equality                                           |
+      | ```toMatch(STRING)```                       | matches the strings                                          |
+      | ```toBeDefined()```                         | check whether object is defined                              |
+      | ```toBeUndefined()```                       | check whether object is undefined                            |
+      | ```toBeNull()```                            | check whether object is null                                 |
+      | ```toBeTruthy()```                          | Evaluate the value to be true in boolean context             |
+      | ```toBeFalsy()```                           | Evaluate the value to be false in boolean context            |
+      | ```toContain(STRING)```                     | Check whether mentioned string contains in the property/function under test |
+      | ```toBeGreaterThan(NUMBER)```               | Check whether obtained number is greater then the mentioned number |
+      | ```toBeLessThan(NUMBER)```                  | Check whether obtained number is smaller then the mentioned number |
+      | ```toBeCloseTo(NUMBER,DECIMAL_PRECISION)``` | It allows you to check if a number is close to another number, given a certain amount of decimal precision as the second argument. |
+      | ```toThrow()```                             | Check whether function under test thrown an error            |
+
+   5. **Truthy** value is a value that is considered `true` when encountered in a Boolean context. All values are truthy unless they are defined as falsy (except for `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, and `NaN`).
