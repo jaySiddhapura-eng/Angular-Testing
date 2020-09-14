@@ -55,22 +55,56 @@
 ## Test File and Code
 
 1. Each angular app component has its own test file, which is being used to write the test code of that particular component
+
 2. The test file per component is created by the angular CLI, while creating the component. It should have extension of ```.spec.ts```
+
+   ![testLoc](assets/tst.PNG)
+
 3. To run the test from angular CLI, execute the command ```ng test``` from the project directory
 
 ## Suits[ describe( ) ]  and it( ) function
 
 1. What is Suites?
+
    1. A suite groups a set of specs or test cases, it created using Jasmine global function ```describe()```
+
    2. ```describe()``` function takes two parameters, the title of the test suite and the function that implements the actual code of the test suite 
+
+   3. ```app.component.spec.ts```
+
+      ~~~typescript
+      describe('AppComponent', () => {
+        // the specs will come here
+      });
+      ~~~
+
+   4. Best practice: The name of suite should be same as name of the component. In above case it is ```AppComponent```
+
 2. What is ```it()``` ?
+
    1. Specs are defined by calling the global jasmine function ```it()```, which is like ```describe()``` function takes a string and a function
    2. The string is a title of the spec and the function is spec
    3. The spec function can contain one or more expectations ```expect()```, which test the state of the code 
    4. A spec with all true expectations is a passing spec
    5. A spec with one or more false expectations is a failing spec
    6. ```it()``` blocks are functions, they can contain any executable code necessary to implement the test. 
-   7. The JavaScript scope rules applies here, so variable declared in a ```describe()``` are available to any ```it()``` block inside suite 
+   7. The JavaScript scope rules applies here, so variable declared in a ```describe()``` are available to all the ```it()``` block inside suite. ```component``` is the property declared on ```describe()``` level and accessed on ```it()``` level
+
+   ~~~typescript
+   describe('AppComponent', () => {
+     let component: AppComponent;
+   
+     //--------------------- SPEC START-------------------------------------------  
+     // it block with two parameters
+     // param1 : name of the spec [should create]
+     // param2 : an arrow function  
+     it('should create', () => {
+       expect(component).toBeTruthy();		// check next section
+     });
+     //----------------------SPEC END----------------------------------------------  
+   
+   });
+   ~~~
 
 ## Expectations and Matchers
 
