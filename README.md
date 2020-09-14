@@ -58,7 +58,7 @@
 
 2. The test file per component is created by the angular CLI, while creating the component. It should have extension of ```.spec.ts```
 
-   ![testLoc](assets/tst.PNG)
+   ![testLoc](assets/testingLocation.png)
 
 3. To run the test from angular CLI, execute the command ```ng test``` from the project directory
 
