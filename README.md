@@ -5,7 +5,7 @@
 [Types of Tests](#Types-of-Tests)  
 [Angular Testing Tools](#Angular-Testing-Tools)  
 [Test File and Code](#Test-File-and-Code)
-[Suits-DESCRIBE-and-IT-function](#Suits-DESCRIBE-and-IT-function)
+[Suits DESCRIBE and IT function](#Suits-DESCRIBE-and-IT-function)
 [Expectations and Matchers](#Expectations-and-Matchers)
 
 ## Automated Testing
