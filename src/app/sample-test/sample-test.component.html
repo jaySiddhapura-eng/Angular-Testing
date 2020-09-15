@@ -1,3 +1,21 @@
 <p>sample-test works!</p>
 
 <p>the property from ts file : {{property}}</p>
+
+<div *ngIf="isLoggedIn">
+    <h1>
+        User Logged In
+    </h1>
+    <p>
+        User is : {{user.name}}
+    </p>
+</div>
+
+<div *ngIf="!isLoggedIn">
+    <h1>
+        User Not Logged In
+    </h1>
+    <p>
+        Please login first
+    </p>
+</div>

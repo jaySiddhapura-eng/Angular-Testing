@@ -1,5 +1,9 @@
 # Angular Testing
 
+## Table of content
+
+[TOC]
+
 ## Automated Testing
 
 1. Catching the defects before software release
@@ -54,13 +58,15 @@
 
 ## Test File and Code
 
-1. Each angular app component has its own test file, which is being used to write the test code of that particular component
+1. Each angular app component has its own test file, which is being used to write the test code of that particular component [ represent in orange rectangle ]
 
 2. The test file per component is created by the angular CLI, while creating the component. It should have extension of ```.spec.ts```
 
    ![testLoc](assets/testingLocation.png)
 
 3. To run the test from angular CLI, execute the command ```ng test``` from the project directory
+
+4. Upon ```ng test``` command execution, karma test runner, scan all the component for ```spec.ts``` files, and execute them after creating all the testing environment
 
 ## Suits[ describe( ) ]  and it( ) function
 
@@ -140,3 +146,23 @@
       | ```toThrow()```                             | Check whether function under test thrown an error            |
 
    5. **Truthy** value is a value that is considered `true` when encountered in a Boolean context. All values are truthy unless they are defined as falsy (except for `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, and `NaN`).
+
+   6. Sample expect and matcher function inside ```it()``` spec block
+
+      ~~~typescript
+      // this spec block will check whether component created or not ?
+      // if component created then this test is successful, else test is failed
+      it('should create the app', () => {
+        let fixture = TestBed.createComponent(SampleTestComponent);
+        let app = fixture.debugElement.componentInstance;
+        expect(app).toBeTruthy();
+      });
+      ~~~
+
+## Accessing component in Spec block
+
+## Test Life-cycle hooks
+
+## Testing the TS file of component
+
+## Testing the view (HTML) view of the component
