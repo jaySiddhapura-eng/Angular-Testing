@@ -1,10 +1,7 @@
 # Angular Testing
 
-## Table of content
 
 [TOC]
-
-## Automated Testing
 
 1. Catching the defects before software release
 2. Identify the design mistakes
