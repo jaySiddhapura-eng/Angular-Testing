@@ -1,8 +1,12 @@
 # Angular Testing
 
-##### Table of Contents  
+## Table of Contents  
 [Automated Testing](#Automated-Testing)  
-[Test life-cycle hooks](#Test-life-cycle-hooks)  
+[Types of Tests](#Types-of-Tests)  
+[Angular Testing Tools](#Angular-Testing-Tools)  
+[Test File and Code](#Test-File-and-Code)
+[DESCRIBE and IT function](#Suits-DESCRIBE-and-IT-function)
+[Expectations and Matchers](#Expectations and Matchers)
 
 ## Automated Testing
 
@@ -13,7 +17,7 @@
 5. Should not be used when " Limited time, limited budget, unsure product future"
 6. Should not use if frequent changing in requirements
 
-## Types of tests
+## Types of Tests
 
 1. **unit test**
    1. Test component in isolation, without external resources like DB, files, etc
@@ -33,7 +37,7 @@
 5. Apply same principles as the functional testing
 6. Follow Single responsibility principle, test only one thing at a time
 
-## Angular Testing tools
+## Angular Testing Tools
 
 1. Jasmine
    1.  It is a behavior-driven development framework for unit testing the javascript code
@@ -68,7 +72,7 @@
 
 4. Upon ```ng test``` command execution, karma test runner, scan all the component for ```spec.ts``` files, and execute them after creating all the testing environment
 
-## Suits[ describe( ) ]  and it( ) function
+## Suits DESCRIBE  and IT function
 
 1. What is Suites?
 
