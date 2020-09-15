@@ -1,12 +1,15 @@
 # Angular Testing
 
 ## Table of Contents  
-[Automated Testing](#Automated-Testing)  
-[Types of Tests](#Types-of-Tests)  
-[Angular Testing Tools](#Angular-Testing-Tools)  
-[Test File and Code](#Test-File-and-Code)
-[Suits and its functions](#Suits-and-its-functions)
-[Expectations and Matchers](#Expectations-and-Matchers)
+1. [Automated Testing](#Automated-Testing)<br>
+2. [Types of Tests](#Types-of-Tests)<br>
+3. [Angular Testing Tools](#Angular-Testing-Tools)<br>
+4. [Test File and Code](#Test-File-and-Code)<br>
+5. [Suits and its functions](#Suits-and-its-functions)<br>
+6. [Expectations and Matchers](#Expectations-and-Matchers)<br>
+
+
+
 
 ## Automated Testing
 
