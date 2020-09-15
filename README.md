@@ -2,7 +2,7 @@
 
 ##### Table of Contents  
 [Automated Testing](#Automated-Testing)  
-[Test lifecycle hooks](#Test-lifecycle-hooks)  
+[Test life-cycle hooks](#Test-life-cycle-hooks)  
 
 ## Automated Testing
 
