@@ -1,7 +1,11 @@
 # Angular Testing
 
+##### Table of Contents  
+[Automated Testing](#AutomatedTesting)  
+[Test lifecycle hooks](#lifecycleHook)  
 
-[TOC]
+<a name="AutomatedTesting"/>
+## Automated Testing
 
 1. Catching the defects before software release
 2. Identify the design mistakes
@@ -158,6 +162,7 @@
 
 ## Accessing component in Spec block
 
+<a name="lifecycleHook"/>
 ## Test Life-cycle hooks
 
 ## Testing the TS file of component
