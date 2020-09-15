@@ -5,7 +5,7 @@
 [Types of Tests](#Types-of-Tests)  
 [Angular Testing Tools](#Angular-Testing-Tools)  
 [Test File and Code](#Test-File-and-Code)
-[Suits DESCRIBE and IT function](#Suits-DESCRIBE-and-IT-function)
+[Suits and its functions](#Suits-and-its-functions)
 [Expectations and Matchers](#Expectations-and-Matchers)
 
 ## Automated Testing
@@ -72,7 +72,7 @@
 
 4. Upon ```ng test``` command execution, karma test runner, scan all the component for ```spec.ts``` files, and execute them after creating all the testing environment
 
-## Suits DESCRIBE  and IT function
+## Suits and its functions
 
 1. What is Suites?
 
@@ -115,6 +115,8 @@
    
    });
    ~~~
+
+3. For expectation and matchers, check the next section
 
 ## Expectations and Matchers
 
@@ -163,10 +165,6 @@
       });
       ~~~
 
-## Accessing component in Spec block
+   7. Check next section for detail about accessing the component in test spec
 
-## Test Life-cycle hooks
-
-## Testing the TS file of component
-
-## Testing the view (HTML) view of the component
+## 
