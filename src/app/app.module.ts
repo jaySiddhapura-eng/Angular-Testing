@@ -4,11 +4,13 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SampleTestComponent } from './sample-test/sample-test.component';
+import { MatcherExamplesComponent } from './matcher-examples/matcher-examples.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SampleTestComponent
+    SampleTestComponent,
+    MatcherExamplesComponent
   ],
   imports: [
     BrowserModule,

@@ -7,14 +7,12 @@
 4. [Test File and Code](#Test-File-and-Code)<br>
 5. [Suits and its functions](#Suits-and-its-functions)<br>
 6. [Expectations and Matchers](#Expectations-and-Matchers)<br>
-
-
-
+7. [Accessing Component in Spec Block](#Accessing-Component-in-Spec-Block)<br>
 
 ## Automated Testing
 
 1. Catching the defects before software release
-2. Identify the design mistakes
+2. Identify the design mistakesjay
 3. Helps in regression testing
 4. Acts as a documentation of app functionality
 5. Should not be used when " Limited time, limited budget, unsure product future"
@@ -42,10 +40,10 @@
 
 ## Angular Testing Tools
 
-1. Jasmine
+1. **Jasmine**
    1.  It is a behavior-driven development framework for unit testing the javascript code
    2. Dependency free and does not require a DOM
-2. Karma
+2. **Karma**
    1. It is a test runner for writing and running the unit tests while developing an Angular app
    2. Since browser do not have natively a concept of loading the test files, running them and reporting results, We will need karma
    3. Karma roughly perform following thing to test the app in browser environment
@@ -56,10 +54,10 @@
       5. Report the results of the test to the above created server
       6. Also report the results to the text files, the consoles etc
    4. Karma looks into the files in app directory which has extension of ```spec.ts``` which are basically a test file
-3. Protractor
+3. **Protractor**
    1. Write and run e2e tests
    2. Explore the app as users experience it
-4. Angular Testing Utilities
+4. **Angular Testing Utilities**
    1. Create a test environment for the application code under test
    2. Used to test interactions between components
 
@@ -136,8 +134,10 @@
 
    3. Any matcher can evaluate to a negative assertion by chaining the ```not``` function before the matcher function
 
-   4. available built-in matcher functions
+      1. Chaining the not method example : ```expect(app).not.toBeTruthy();```
 
+   4. available built-in matcher functions
+   
       | Matcher Functions                           | Description                                                  |
       | ------------------------------------------- | ------------------------------------------------------------ |
       | ```toBe(TRUE)```                            | Check boolean outcome                                        |
@@ -151,13 +151,13 @@
       | ```toContain(STRING)```                     | Check whether mentioned string contains in the property/function under test |
       | ```toBeGreaterThan(NUMBER)```               | Check whether obtained number is greater then the mentioned number |
       | ```toBeLessThan(NUMBER)```                  | Check whether obtained number is smaller then the mentioned number |
-      | ```toBeCloseTo(NUMBER,DECIMAL_PRECISION)``` | It allows you to check if a number is close to another number, given a certain amount of decimal precision as the second argument. |
+   | ```toBeCloseTo(NUMBER,DECIMAL_PRECISION)``` | It allows you to check if a number is close to another number, given a certain amount of decimal precision as the second argument. |
       | ```toThrow()```                             | Check whether function under test thrown an error            |
 
    5. **Truthy** value is a value that is considered `true` when encountered in a Boolean context. All values are truthy unless they are defined as falsy (except for `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, and `NaN`).
 
    6. Sample expect and matcher function inside ```it()``` spec block
-
+   
       ~~~typescript
       // this spec block will check whether component created or not ?
       // if component created then this test is successful, else test is failed
@@ -165,9 +165,132 @@
         let fixture = TestBed.createComponent(SampleTestComponent);
         let app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
-      });
+   });
       ~~~
-
+   
    7. Check next section for detail about accessing the component in test spec
 
-## 
+## Declaring, the component under test
+
+1. Before each ```it()``` get executed, we need to declare the component which is under test
+
+2. Just like angular life cycle hooks, each test suite has its own life cycle hooks
+
+3. For example, beforeEach, beforeAll, afterEach, afterAll [setup and teardown methods]
+
+4. In the setup section, the component under test is declared as follow
+
+   ~~~typescript
+   beforeEach(() => {
+     TestBed.configureTestingModule({
+        declarations:[SampleTestComponent]
+     });
+   });
+   
+   // TestBed is the part of angular testing utility
+   ~~~
+
+## Test Setup and Teardown methods
+
+1. Just like angular life cycle hooks, we can access different stages of test 
+
+2. By accessing you can execute your code prior to the test
+
+3. Along with setup code before test, we can execute the certain code on test ending by utilizing certain methods provided by Angular test utility
+
+4. ```beforeEach( ()=> {} )``` 
+
+   1. This function takes an arrow function as its parameter
+
+   2. As name suggests, this function will be called and arrow function which it holds will be executed, before each ```it()``` specs
+
+   3. Template:
+
+      ~~~typescript
+        beforeEach(() => {
+      	// the code here will be executed 
+          // every time when beforeEach is called
+        });
+      ~~~
+
+5. ```afterEach(() =>{})```
+
+   1. Opposite to the ```beforeEach()```, ```afterEach()``` will be called after execution of each ```it()``` spec
+
+   2. Same as beforeEach function, afterEach also takes an arrow function as its function parameter
+
+   3. And the code written inside arrow function will be executed whenever ```afterEach()``` is called
+
+   4. Template: 
+
+      ~~~typescript
+        afterEach(() => {
+      	// the code here will be executed 
+          // every time when beforeEach is called
+        });
+      ~~~
+
+6. ```beforeAll(() => {})```
+
+   1. Unlike above mentioned test hooks, this one will be called once in the  beginning of the test, and not every time when spec is being executed
+   2. This function also takes an arrow function as a parameter
+
+7. ```afterAll(() => {})```
+
+   1. This function also takes an arrow function as a parameter 
+   2. ```afterAll()``` will be called once all the specs are conducted
+
+## TestBed
+
+1. The `TestBed` class is one of the principal Angular testing utilities
+
+2. It creates the angular testing module
+
+3. It has multiple methods which are used to create and access the component under test
+
+4. It also configure the module which need to be tested
+
+5. The configuration of component under test can be done in the setup test hook as follow
+
+   ~~~typescript
+   beforeAll(() => {
+     TestBed.configureTestingModule({
+        declarations:[SampleTestComponent]
+     });
+   });
+   ~~~
+
+6. Testbed class can be used to create the component instance in the spec as follow
+
+   ~~~typescript
+   let fixture = TestBed.createComponent(SampleTestComponent);
+   // fixture will hold the instance of the SampleTestComponent
+   // we can access this component using fixture
+   ~~~
+
+7. TestBed class has many more methods, but this two methods are used very frequently, for other method follow the [link](https://angular.io/guide/testing-utility-apis)
+
+## Accessing Component in Spec Block using angular testing utility
+
+1. In this section we will access the different property of the component under test 
+
+2. Create the instance of the component in ```it()``` spec as  follow
+
+   ~~~typescript
+     it('should create the app', () => {
+       let fixture = TestBed.createComponent(SampleTestComponent);
+     });
+   ~~~
+
+3. Obtain the component instance as follow
+
+   ~~~typescript
+     it('should create the app', () => {
+       let fixture = TestBed.createComponent(SampleTestComponent);
+       let app = fixture.debugElement.componentInstance;
+     });
+   ~~~
+
+   
+
+## Accessing the template using angular testing utility

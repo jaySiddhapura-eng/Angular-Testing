@@ -7,11 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SampleTestComponent implements OnInit {
 
-  property:String = 'from ts file';
+  property:String = 'from sample test component'
+
+  user:{name:String};
+  isLoggedIn = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public loginChange(){
+    this.isLoggedIn = !this.isLoggedIn;
+  }
+
+  public returnName(){
+    let name = 'jay';
+    return name;
   }
 
 }
