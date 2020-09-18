@@ -291,6 +291,47 @@
      });
    ~~~
 
+4. Testing the property declared in TS file of component using expect and matcher function
+
+   ~~~typescript
+   
+   ~~~
+
+   
+
+   ~~~typescript
+   // spec.ts
+   // check whether value is equal 
+   it('should check the value equality', () => {
+     let fixture =  TestBed.createComponent(MatcherExamplesComponent);
+     let app = fixture.debugElement.componentInstance;
+     expect(app.sampleNumericValue).toEqual(3.14);
+   });
+   ~~~
+
+5. Testing function implemented in TS file
+
+   ~~~typescript
+   // component
+   export class SampleTestComponent implements OnInit {
+       	isLoggedIn = false;
+   	    public loginChange(){
+      			this.isLoggedIn = !this.isLoggedIn;
+   		}
+   }
+   ~~~
+
+   ~~~typescript
+   // spec.ts
+   it('should check the effect of method', () =>{
+       let fixture = TestBed.createComponent(SampleTestComponent);
+       let app = fixture.debugElement.componentInstance;
+       let preLoginState = app.isLoggedIn;
+       app.loginChange();
+       expect(app.isLoggedIn).not.toEqual(preLoginState);
+   });
+   ~~~
+
    
 
 ## Accessing the template using angular testing utility
