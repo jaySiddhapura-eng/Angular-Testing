@@ -169,6 +169,8 @@
       ~~~
    
    7. Check next section for detail about accessing the component in test spec
+   
+   8. [Link for example usage of matcher function]()
 
 ## Declaring, the component under test
 
@@ -294,21 +296,15 @@
 4. Testing the property declared in TS file of component using expect and matcher function
 
    ~~~typescript
-   
-   ~~~
-
-   
-
-   ~~~typescript
    // spec.ts
    // check whether value is equal 
-   it('should check the value equality', () => {
+it('should check the value equality', () => {
      let fixture =  TestBed.createComponent(MatcherExamplesComponent);
-     let app = fixture.debugElement.componentInstance;
+  let app = fixture.debugElement.componentInstance;
      expect(app.sampleNumericValue).toEqual(3.14);
    });
    ~~~
-
+   
 5. Testing function implemented in TS file
 
    ~~~typescript
@@ -332,6 +328,5 @@
    });
    ~~~
 
-   
 
-## Accessing the template using angular testing utility
+## Accessing the template using angular testing utility 

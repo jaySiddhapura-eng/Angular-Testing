@@ -39,13 +39,13 @@ describe('SampleTestComponent', () => {
   it('should return the name', () =>{
     let fixture = TestBed.createComponent(SampleTestComponent);
     let app = fixture.debugElement.componentInstance;
-    expect(app.returnName).toMatch('jay');
+    expect(app.returnName()).toMatch('jay');
   });
 
 });
 
 
-// ## Accessing component in Spec block
+
 
 // ## Test Life-cycle hooks
 
