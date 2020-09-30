@@ -7,9 +7,16 @@
 4. [Test File and Code](#Test-File-and-Code)<br>
 5. [Suits and its functions](#Suits-and-its-functions)<br>
 6. [Expectations and Matchers](#Expectations-and-Matchers)<br>
-7. [Accessing Component in Spec Block](#Accessing-Component-in-Spec-Block)<br>
+7. [Declaring The Component Under Test](Declaring-The-Component-Under-Test)<br>
+8. [Test Setup and Teardown Methods](Test-Setup-and-Teardown-Methods)<br>
+9. [TestBed](TestBed)<br>
+10. [Accessing Component in Spec Block Using Angular Testing Utility](Accessing-Component-in-Spec-Block-Using-Angular-Testing-Utility)<br>
+11. [Testing Dependency Components and Services](Testing-Dependency-Components-and-Services)<br>
+12. [Accessing The Template Using Angular Testing Utility](Accessing-The-Template-Using-Angular-Testing-Utility)<br>
 
 ## Automated Testing
+
+## [:arrow_up:](Table-of-Contents)
 
 1. Catching the defects before software release
 2. Identify the design mistakes
@@ -19,6 +26,8 @@
 6. Should not use if frequent changing in requirements
 
 ## Types of Tests
+
+## [:arrow_up:](Table-of-Contents)
 
 1. **unit test**
    1. Test component in isolation, without external resources like DB, files, etc
@@ -39,6 +48,8 @@
 6. Follow Single responsibility principle, test only one thing at a time
 
 ## Angular Testing Tools
+
+## [:arrow_up:](Table-of-Contents)
 
 1. **Jasmine**
    1.  It is a behavior-driven development framework for unit testing the javascript code
@@ -63,6 +74,8 @@
 
 ## Test File and Code
 
+## [:arrow_up:](Table-of-Contents)
+
 1. Each angular app component has its own test file, which is being used to write the test code of that particular component [ represent in orange rectangle ]
 
 2. The test file per component is created by the angular CLI, while creating the component. It should have extension of ```.spec.ts```
@@ -74,6 +87,8 @@
 4. Upon ```ng test``` command execution, karma test runner, scan all the component for ```spec.ts``` files, and execute them after creating all the testing environment
 
 ## Suits and its functions
+
+## [:arrow_up:](Table-of-Contents)
 
 1. What is Suites?
 
@@ -120,6 +135,8 @@
 3. For expectation and matchers, check the next section
 
 ## Expectations and Matchers
+
+## [:arrow_up:](Table-of-Contents)
 
 1. What are ```expectations```
 
@@ -172,7 +189,9 @@
    
    8. [Link for example usage of matcher function](https://github.com/jaySiddhapura-eng/Angular-Testing/blob/master/src/app/matcher-examples/matcher-examples.component.spec.ts)
 
-## Declaring, the component under test
+## Declaring The Component Under Test
+
+## [:arrow_up:](Table-of-Contents)
 
 1. Before each ```it()``` get executed, we need to declare the component which is under test
 
@@ -192,7 +211,9 @@
    // TestBed is the part of angular testing utility
    ~~~
 
-## Test Setup and Teardown methods
+## Test Setup and Teardown Methods
+
+## [:arrow_up:](Table-of-Contents)
 
 1. Just like angular life cycle hooks, we can access different stages of test 
 
@@ -244,6 +265,8 @@
 
 ## TestBed
 
+## [:arrow_up:](Table-of-Contents)
+
 1. The `TestBed` class is one of the principal Angular testing utilities
 
 2. It creates the angular testing module
@@ -272,7 +295,9 @@
 
 7. TestBed class has many more methods, but this two methods are used very frequently, for other method follow the [link](https://angular.io/guide/testing-utility-apis)
 
-## Accessing Component in Spec Block using angular testing utility
+## Accessing Component in Spec Block Using Angular Testing Utility
+
+## [:arrow_up:](Table-of-Contents)
 
 1. In this section we will access the different property of the component under test 
 
@@ -330,6 +355,8 @@ it('should check the value equality', () => {
 
 ## Testing Dependency Components and Services
 
+## [:arrow_up:](Table-of-Contents)
+
 1. Create a service name ```sample-test.service.ts```
 
    ~~~typescript
@@ -375,7 +402,9 @@ it('should check the value equality', () => {
      });
    ~~~
 
-## Accessing the template using angular testing utility
+## Accessing The Template Using Angular Testing Utility
+
+## [:arrow_up:](Table-of-Contents)
 
 1. Create the component typescript file as follow
 
@@ -426,9 +455,6 @@ it('should check the value equality', () => {
        let app = fixture.debugElement.componentInstance;
        fixture.detectChanges();
        let compiled = fixture.debugElement.nativeElement;
-       expect(compiled.querySelector('p').textContent).not.toContain(app.user.name);
+       expect(compiled.querySelector('p').textContent).not.toContain(app.user.name)
      })
    ~~~
-
-   
-
