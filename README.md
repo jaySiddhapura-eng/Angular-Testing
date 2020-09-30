@@ -16,7 +16,7 @@
 
 ## Automated Testing
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. Catching the defects before software release
 2. Identify the design mistakes
@@ -27,7 +27,7 @@
 
 ## Types of Tests
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. **unit test**
    1. Test component in isolation, without external resources like DB, files, etc
@@ -49,7 +49,7 @@
 
 ## Angular Testing Tools
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. **Jasmine**
    1.  It is a behavior-driven development framework for unit testing the javascript code
@@ -74,7 +74,7 @@
 
 ## Test File and Code
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. Each angular app component has its own test file, which is being used to write the test code of that particular component [ represent in orange rectangle ]
 
@@ -88,7 +88,7 @@
 
 ## Suits and its functions
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. What is Suites?
 
@@ -136,7 +136,7 @@
 
 ## Expectations and Matchers
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. What are ```expectations```
 
@@ -190,7 +190,7 @@
 
 ## Declaring The Component Under Test
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. Before each ```it()``` get executed, we need to declare the component which is under test
 
@@ -212,7 +212,7 @@
 
 ## Test Setup and Teardown Methods
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. Just like angular life cycle hooks, we can access different stages of test 
 
@@ -264,7 +264,7 @@
 
 ## TestBed
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. The `TestBed` class is one of the principal Angular testing utilities
 
@@ -296,7 +296,7 @@
 
 ## Accessing Component in Spec Block Using Angular Testing Utility
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. In this section we will access the different property of the component under test 
 
@@ -354,7 +354,7 @@ it('should check the value equality', () => {
 
 ## Testing Dependency Components and Services
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. Create a service name ```sample-test.service.ts```
 
@@ -403,7 +403,7 @@ it('should check the value equality', () => {
 
 ## Accessing The Template Using Angular Testing Utility
 
-## [:arrow_up:](Table-of-Contents)
+## [:arrow_up:](#Table-of-Contents)
 
 1. Create the component typescript file as follow
 
