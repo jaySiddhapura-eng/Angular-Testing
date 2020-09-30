@@ -154,7 +154,7 @@
       1. Chaining the not method example : ```expect(app).not.toBeTruthy();```
 
    4. available built-in matcher functions [implementation link](https://github.com/jaySiddhapura-eng/Angular-Testing/blob/master/src/app/matcher-examples/matcher-examples.component.spec.ts)
-   
+
       | Matcher Functions                           | Description                                                  |
       | ------------------------------------------- | ------------------------------------------------------------ |
       | ```toBe(TRUE)```                            | Check boolean outcome                                        |
@@ -174,7 +174,7 @@
    5. **Truthy** value is a value that is considered `true` when encountered in a Boolean context. All values are truthy unless they are defined as falsy (except for `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, and `NaN`).
 
    6. Sample expect and matcher function inside ```it()``` spec block
-   
+
       ~~~typescript
       // this spec block will check whether component created or not ?
       // if component created then this test is successful, else test is failed
@@ -184,8 +184,6 @@
         expect(app).toBeTruthy();
    });
       ~~~
-   
-   7. Check next section for detail about accessing the component in test spec
 
 ## Declaring The Component Under Test
 
