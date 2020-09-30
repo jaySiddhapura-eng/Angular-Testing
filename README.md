@@ -184,7 +184,6 @@
         expect(app).toBeTruthy();
    });
       ~~~
-
 ## Declaring The Component Under Test
 
 ## [:arrow_up:](#Table-of-Contents)
