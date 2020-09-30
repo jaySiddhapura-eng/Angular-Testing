@@ -173,7 +173,7 @@
 
    5. **Truthy** value is a value that is considered `true` when encountered in a Boolean context. All values are truthy unless they are defined as falsy (except for `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined`, and `NaN`).
 
-   6. Sample expect and matcher function inside ```it()``` spec block
+   6. Sample expect and match function
 
       ~~~typescript
       // this spec block will check whether component created or not ?
@@ -182,10 +182,8 @@
         let fixture = TestBed.createComponent(SampleTestComponent);
         let app = fixture.debugElement.componentInstance;
         expect(app).toBeTruthy();
-   });
+      });
       ~~~
-   
-3. ss
 ## Declaring The Component Under Test
 
 ## [:arrow_up:](#Table-of-Contents)
