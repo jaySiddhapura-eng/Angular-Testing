@@ -186,7 +186,6 @@
       ~~~
    
    7. Check next section for detail about accessing the component in test spec
-   
 
 ## Declaring The Component Under Test
 
