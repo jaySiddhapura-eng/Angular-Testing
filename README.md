@@ -7,12 +7,12 @@
 4. [Test File and Code](#Test-File-and-Code)<br>
 5. [Suits and its functions](#Suits-and-its-functions)<br>
 6. [Expectations and Matchers](#Expectations-and-Matchers)<br>
-7. [Declaring The Component Under Test](Declaring-The-Component-Under-Test)<br>
-8. [Test Setup and Teardown Methods](Test-Setup-and-Teardown-Methods)<br>
-9. [TestBed](TestBed)<br>
-10. [Accessing Component in Spec Block Using Angular Testing Utility](Accessing-Component-in-Spec-Block-Using-Angular-Testing-Utility)<br>
-11. [Testing Dependency Components and Services](Testing-Dependency-Components-and-Services)<br>
-12. [Accessing The Template Using Angular Testing Utility](Accessing-The-Template-Using-Angular-Testing-Utility)<br>
+7. [Declaring The Component Under Test](#Declaring-The-Component-Under-Test)<br>
+8. [Test Setup and Teardown Methods](#Test-Setup-and-Teardown-Methods)<br>
+9. [TestBed](#TestBed)<br>
+10. [Accessing Component in Spec Block Using Angular Testing Utility](#Accessing-Component-in-Spec-Block-Using-Angular-Testing-Utility)<br>
+11. [Testing Dependency Components and Services](#Testing-Dependency-Components-and-Services)<br>
+12. [Accessing The Template Using Angular Testing Utility](#Accessing-The-Template-Using-Angular-Testing-Utility)<br>
 
 ## Automated Testing
 
@@ -153,7 +153,7 @@
 
       1. Chaining the not method example : ```expect(app).not.toBeTruthy();```
 
-   4. available built-in matcher functions
+   4. available built-in matcher functions [implementation link](https://github.com/jaySiddhapura-eng/Angular-Testing/blob/master/src/app/matcher-examples/matcher-examples.component.spec.ts)
    
       | Matcher Functions                           | Description                                                  |
       | ------------------------------------------- | ------------------------------------------------------------ |
@@ -187,7 +187,6 @@
    
    7. Check next section for detail about accessing the component in test spec
    
-   8. [Link for example usage of matcher function](https://github.com/jaySiddhapura-eng/Angular-Testing/blob/master/src/app/matcher-examples/matcher-examples.component.spec.ts)
 
 ## Declaring The Component Under Test
 
