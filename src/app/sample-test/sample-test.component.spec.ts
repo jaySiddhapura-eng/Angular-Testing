@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SampleTestComponent } from './sample-test.component';
+import { UserService } from './sample-test.service';
 
 describe('SampleTestComponent', () => {
 
@@ -41,6 +42,33 @@ describe('SampleTestComponent', () => {
     let app = fixture.debugElement.componentInstance;
     expect(app.returnName()).toMatch('jay');
   });
+
+  it('should check the service injection', () => {
+    let fixture = TestBed.createComponent(SampleTestComponent);
+    let app = fixture.debugElement.componentInstance;
+    // obtain the service instance in test as follow
+    let userServiceTest = fixture.debugElement.injector.get(UserService);
+    fixture.detectChanges();
+    expect(userServiceTest.user.name).toEqual(app.user.name);
+  });
+
+  it('should display the username if user is logged in', () => {
+    let fixture = TestBed.createComponent(SampleTestComponent);
+    let app = fixture.debugElement.componentInstance;
+    app.isLoggedIn = true;
+    fixture.detectChanges();
+    // following way we can access the html dom element
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('p').textContent).toContain(app.user.name);
+  });
+
+  it('should\'t display the username if user is not logged in', () => {
+    let fixture = TestBed.createComponent(SampleTestComponent);
+    let app = fixture.debugElement.componentInstance;
+    fixture.detectChanges();
+    let compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('p').textContent).not.toContain(app.user.name);
+  })
 
 });
 

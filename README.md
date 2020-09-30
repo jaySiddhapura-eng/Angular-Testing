@@ -12,7 +12,7 @@
 ## Automated Testing
 
 1. Catching the defects before software release
-2. Identify the design mistakesjay
+2. Identify the design mistakes
 3. Helps in regression testing
 4. Acts as a documentation of app functionality
 5. Should not be used when " Limited time, limited budget, unsure product future"
@@ -170,7 +170,7 @@
    
    7. Check next section for detail about accessing the component in test spec
    
-   8. [Link for example usage of matcher function]()
+   8. [Link for example usage of matcher function](https://github.com/jaySiddhapura-eng/Angular-Testing/blob/master/src/app/matcher-examples/matcher-examples.component.spec.ts)
 
 ## Declaring, the component under test
 
@@ -300,7 +300,7 @@
    // check whether value is equal 
 it('should check the value equality', () => {
      let fixture =  TestBed.createComponent(MatcherExamplesComponent);
-  let app = fixture.debugElement.componentInstance;
+    let app = fixture.debugElement.componentInstance;
      expect(app.sampleNumericValue).toEqual(3.14);
    });
    ~~~
@@ -328,5 +328,107 @@ it('should check the value equality', () => {
    });
    ~~~
 
+## Testing Dependency Components and Services
 
-## Accessing the template using angular testing utility 
+1. Create a service name ```sample-test.service.ts```
+
+   ~~~typescript
+   export class UserService{
+       user = {name: 'xyz'}	// user object with name property
+   }
+   ~~~
+
+2. Inject the service in the component ```sample-test.component.ts```
+
+   ~~~typescript
+   @Component({
+     selector: 'app-sample-test',
+     templateUrl: './sample-test.component.html',
+     styleUrls: ['./sample-test.component.css'],
+     providers:[UserService]	// service is provided here
+   })
+   export class SampleTestComponent implements OnInit {
+       user:{name:String};
+       
+       constructor(private  userService:UserService) { }
+       
+       ngOnInit(): void {
+       	this.user = this.userService.user;	// accessing the service property
+     	}
+   }
+   ~~~
+
+3. Create the spec which test the above implementation
+
+   ~~~typescript
+     it('should check the service injection', () => {
+       let fixture = TestBed.createComponent(SampleTestComponent);
+       let app = fixture.debugElement.componentInstance;
+         
+       // obtain the service instance in test as follow
+       let userServiceTest = fixture.debugElement.injector.get(UserService);
+         
+       // following method emulate the injection of service in the component
+       // without following method test will fail  
+       fixture.detectChanges();
+       expect(userServiceTest.user.name).toEqual(app.user.name);
+     });
+   ~~~
+
+## Accessing the template using angular testing utility
+
+1. Create the component typescript file as follow
+
+   ~~~typescript
+   export class SampleTestComponent implements OnInit { 
+     user:{name:String};
+     isLoggedIn = false;
+   }
+   ~~~
+
+2. Create the HTML template for the component as follow
+
+   ~~~html
+   <div *ngIf="isLoggedIn">
+       <!--Loggedin paragraph-->
+       <h1>User Logged In</h1>
+       <p>User is : {{user.name}}</p>
+   </div>
+   
+   <div *ngIf="!isLoggedIn">
+       <!--non logged in paragraph-->
+       <h1>User Not Logged In</h1>
+       <p>Please login first</p>
+   </div>
+   ~~~
+
+3. The paragraphs in the template file will conditionally be rendered according to the value of ```isLoggedIn``` variable
+
+4. Create the spec to test whether logged in paragraph is rendered 
+
+   ~~~typescript
+     it('should display the username if user is logged in', () => {
+       let fixture = TestBed.createComponent(SampleTestComponent);
+       let app = fixture.debugElement.componentInstance;
+       app.isLoggedIn = true;
+       fixture.detectChanges();
+       // following way we can access the html dom element
+       let compiled = fixture.debugElement.nativeElement;
+       expect(compiled.querySelector('p').textContent).toContain(app.user.name);
+     });
+   ~~~
+
+5. Create the spec to test whether other paragraph rendered
+
+   ~~~typescript
+     it('should\'t display the username if user is not logged in', () => {
+       let fixture = TestBed.createComponent(SampleTestComponent);
+       let app = fixture.debugElement.componentInstance;
+       fixture.detectChanges();
+       let compiled = fixture.debugElement.nativeElement;
+       expect(compiled.querySelector('p').textContent).not.toContain(app.user.name);
+     })
+   ~~~
+
+   
+

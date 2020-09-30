@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './sample-test.service';
 
 @Component({
   selector: 'app-sample-test',
   templateUrl: './sample-test.component.html',
-  styleUrls: ['./sample-test.component.css']
+  styleUrls: ['./sample-test.component.css'],
+  providers:[UserService]
 })
 export class SampleTestComponent implements OnInit {
+
+
 
   property:String = 'from sample test component'
 
   user:{name:String};
   isLoggedIn = false;
 
-  constructor() { }
+  constructor(private  userService:UserService) { }
 
   ngOnInit(): void {
+    this.user = this.userService.user;
   }
 
   public loginChange(){
@@ -22,8 +27,8 @@ export class SampleTestComponent implements OnInit {
   }
 
   public returnName(){
-    let name = 'jay';
-    return name;
+    let namen = 'jay';
+    return namen;
   }
 
 }
