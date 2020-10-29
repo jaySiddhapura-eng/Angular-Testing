@@ -453,3 +453,7 @@ it('should check the value equality', () => {
        expect(compiled.querySelector('p').textContent).not.toContain(app.user.name)
      })
    ~~~
+
+
+
+Feature branch added
